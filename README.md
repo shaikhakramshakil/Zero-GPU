@@ -9,12 +9,18 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 Get powerful AI code completions in VS Code using Kaggle's free P100 GPU.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c6f74c88-514b-4bc4-8703-b150b87ff4b7" alt="ZeroGPU - Free AI Code Completions" width="600">
+</div>
+
 
 [Quick Start](#-quick-start) • [How It Works](#-how-it-works) • [Models](#-best-models) • [FAQ](#-faq)
 
 </div>
 
 ---
+
+
 
 ## 💡 The Problem
 
@@ -295,24 +301,6 @@ We welcome all contributions!
 4. Push: git push origin feature/your-feature
 5. Open Pull Request
 ```
-
----
-
-## 📄 License
-
-MIT License - Free to use and modify
-
----
-
-## 📞 Support
-
-Found an issue? Have a suggestion?
-→ [Open an issue](https://github.com/shaikhakramshakil/AI-on-Cloud/issues)
-
-Questions? Need help?
-→ [Start a discussion](https://github.com/shaikhakramshakil/AI-on-Cloud/discussions)
-
----
 
 <div align="center">
 
