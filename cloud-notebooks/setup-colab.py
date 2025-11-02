@@ -1,48 +1,37 @@
 """
-Cloud LLM API Server for Google Colab
-=====================================
-
-This script sets up a vLLM inference server in Google Colab with:
-- FastAPI for REST endpoints
-- Model loading (Mistral-7B or Qwen-7B)
-- API key authentication
-- Public URL via ngrok
-
-Run this in Google Colab to start the server.
+Automatic Setup for Cloud LLM
+Generates config and API key automatically
 """
 
-import os
-import sys
-import subprocess
 import secrets
 import json
 from datetime import datetime
 
-# Color codes for terminal output
-class Colors:
-    GREEN = '\033[92m'
-    BLUE = '\033[94m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    END = '\033[0m'
-    BOLD = '\033[1m'
+# Generate configuration automatically
+api_key = secrets.token_hex(16)
 
-def print_header(text):
-    print(f"\n{Colors.BOLD}{Colors.BLUE}{'='*60}{Colors.END}")
-    print(f"{Colors.BOLD}{Colors.BLUE}{text:^60}{Colors.END}")
-    print(f"{Colors.BOLD}{Colors.BLUE}{'='*60}{Colors.END}\n")
+config = {
+    "api_key": api_key,
+    "server_url": "http://localhost:8000",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "max_tokens": 512,
+    "temperature": 0.7,
+    "created_at": datetime.now().isoformat()
+}
 
-def print_success(text):
-    print(f"{Colors.GREEN}✓ {text}{Colors.END}")
+# Save config
+with open("config.json", "w") as f:
+    json.dump(config, f, indent=2)
 
-def print_info(text):
-    print(f"{Colors.BLUE}ℹ {text}{Colors.END}")
-
-def print_warning(text):
-    print(f"{Colors.YELLOW}⚠ {text}{Colors.END}")
-
-def print_error(text):
-    print(f"{Colors.RED}✗ {text}{Colors.END}")
+# Display info
+print("\n" + "="*60)
+print("✅ SETUP COMPLETE!")
+print("="*60)
+print(f"\n🔑 API Key: {api_key}")
+print(f"📍 URL: {config['server_url']}")
+print(f"🤖 Model: {config['model']}")
+print("\n📋 Next: Use this API key in VS Code extension")
+print("="*60 + "\n")
 
 # ============================================================================
 # STEP 1: Install Dependencies
